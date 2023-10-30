@@ -7,9 +7,13 @@ import { PhotosService } from "../photos.service";
   styleUrls: ['./photo-show.component.css']
 })
 export class PhotoShowComponent implements OnInit {
+  storedUrl = '';
   constructor(private photoService: PhotosService) {
     this.photoService.getPhoto().subscribe((response)=>{
-      console.log(response.urls.regular);
+      // console.log(response);
+      // console.log(response.urls.regular);
+      this.storedUrl = response.urls.regular;
+      // console.log(this.storedUrl);
     });
   }
 
